@@ -3,7 +3,6 @@
 
 
 <section>
-
   <h1>Theory by <%= theory.owner.name %> </h1>
   <div>
     <img 
@@ -45,7 +44,12 @@
     </table>
   <% } else { %>
     <h3>No Evidence Yet</h3>
-    <% } %>  
+    <% } %>
+    <% if (theory.owner.equals(user?.profile._id)) { %>
+     <form action="/theories/<%= theory._id %>/edit" method="GET">
+      <button class="btn" type="submit">Edit this theory</button>
+    </form>
+    <% } %>
 </section>
 
 <%- include('../partials/footer') %>

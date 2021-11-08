@@ -61,9 +61,24 @@ function createEvidence(req, res) {
   })
 }
 
+function edit(req, res) {
+  Theory.findById(req.params.id)
+  .then(theory => {
+    res.render("theories/edit", {
+      title: "Edit Theory",
+      theory
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/theories")
+  })
+}
+
 export {
   index,
   create,
   show,
   createEvidence,
+  edit,
 }

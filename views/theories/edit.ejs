@@ -1,0 +1,28 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Edit this Theory</h1>
+  <form action="">
+    <label>
+      Theory:
+      <input 
+      type="text" 
+      name="title"
+      value="<%= theory.title %> " 
+      autocomplete="off">
+    </label>
+    <br>
+    <label>
+      Description:
+      <input 
+      type="text" 
+      name="description" 
+      value="<%= theory.description %> "
+      autocomplete="off">
+    </label>
+    <button type="submit">Edit Theory 👽</button>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>
