@@ -10,16 +10,18 @@
         Theory:
         <input type="text" name="title" autocomplete="off">
       </label>
+      <br>
       <label>
         Description:
         <input type="text" name="description" autocomplete="off">
       </label>
+      <br>
       <button type="submit">Add Theory 👽</button>
     </form>
   <% } %> 
   <ul>
     <% theories.forEach(theory => { %>
-      <li>🛸 <%= theory.owner %> | <%= theory.title %> </li>
+      <li>🛸 <%= theory.owner.name %> | <%= theory.title %> <a href="/theories/<%= theory._id %> ">Details</a></li>
     <% }) %> 
   </ul>
 </section>

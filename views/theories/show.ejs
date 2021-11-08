@@ -1,0 +1,19 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+
+<section>
+
+  <h1>Theory of <%= theory.owner.name %> </h1>
+  <div>
+    <img 
+      src="<%= user.profile.avatar %>" 
+      alt="<%= user.profile.name %> avatar"
+    >
+  </div>
+  <h2>Title: <%= theory.title %> </h2>
+  <p>Description: <%= theory.description %> </p>
+  <p>Created on: <%= theory.createdAt %> </p>
+</section>
+
+<%- include('../partials/footer') %>
