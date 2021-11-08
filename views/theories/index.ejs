@@ -1,0 +1,13 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1> <%= title %> </h1>
+  <ul>
+    <% theories.forEach(theory => { %>
+      <li>🛸<%= theory.owner %> <%= theory.title %> </li>
+    <% }) %> 
+  </ul>
+</section>
+
+<%- include('../partials/footer') %>

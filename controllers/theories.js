@@ -3,7 +3,7 @@ import { Theory } from "../models/theory.js";
 function index(req, res) {
   Theory.find({})
   .then(theories => { 
-    res.render("thories/index", {
+    res.render("theories/index", {
       theories,
       title: "Conspiracy Theories"
     })
