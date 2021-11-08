@@ -4,16 +4,48 @@
 
 <section>
 
-  <h1>Theory of <%= theory.owner.name %> </h1>
+  <h1>Theory by <%= theory.owner.name %> </h1>
   <div>
     <img 
-      src="<%= user.profile.avatar %>" 
-      alt="<%= user.profile.name %> avatar"
+      src="<%= theory.owner.avatar %>" 
+      alt="<%= theory.owner.name %> avatar"
     >
   </div>
-  <h2>Title: <%= theory.title %> </h2>
-  <p>Description: <%= theory.description %> </p>
-  <p>Created on: <%= theory.createdAt %> </p>
+  <h2><%= theory.title %> </h2>
+  <h3>Description: </h3>
+  <p><%= theory.description %> </p>
+  <h3>Created on: </h3>
+  <p><%= theory.createdAt %> </p>
+  <% if (user) { %> 
+  <h2>Add Evidence</h2>
+  <form 
+  id="add-evidence-form" 
+  action="/theories/<%= theory._id %>/evidence"
+  method="POST">
+  <input type="text" placeholder="Input Evidence Here" name="content">
+  <button type="submit">Submit</button>
+  <% } %> 
+  </form>
+  <% if (theory.evidence.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Evidence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% theory.evidence.forEach(function(e) { %>
+          <tr>
+            <td><%= e.owner.name %> </td>
+            <td> <%= e.content %> </td>
+          </tr>
+        <% }) %> 
+      </tbody>
+    </table>
+  <% } else { %>
+    <h3>No Evidence Yet</h3>
+    <% } %>  
 </section>
 
 <%- include('../partials/footer') %>

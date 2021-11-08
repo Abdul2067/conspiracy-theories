@@ -30,11 +30,29 @@ function create(req, res) {
 function show(req, res) {
   Theory.findById(req.params.id)
   .populate("owner")
+  .populate("evidence.owner")
   .then(theory => {
-    console.log(theory)
     res.render("theories/show", {
       theory,
       title: ""
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/theories")
+  })
+}
+
+function createEvidence(req, res) {
+  req.body.owner = req.user.profile._id
+  console.log(req.user.profile)
+  Theory.findById(req.params.id)
+  .then(theory => {
+    theory.evidence.push(req.body)
+    theory.save()
+    .then(() => {
+      res.redirect(`/theories/${theory._id}`)
+      console.log("The evidence", req.body)
     })
   })
   .catch(err => {
@@ -47,4 +65,5 @@ export {
   index,
   create,
   show,
+  createEvidence,
 }
