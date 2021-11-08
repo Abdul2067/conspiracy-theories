@@ -14,6 +14,19 @@ function index(req, res) {
   })
 }
 
+function create(req, res) {
+  req.body.owner = req.user.profile._id
+  Theory.create(req.body)
+  .then(theory => {
+    res.redirect("/theories")
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/theories")
+  })
+}
+
 export {
-  index
+  index,
+  create,
 }

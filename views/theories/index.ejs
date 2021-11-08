@@ -3,9 +3,23 @@
 
 <section>
   <h1> <%= title %> </h1>
+  <% if (user) { %>
+    <h2>Add a Conspiracy Theory</h2>
+    <form action="/theories" method="POST">
+      <label>
+        Theory:
+        <input type="text" name="title" autocomplete="off">
+      </label>
+      <label>
+        Description:
+        <input type="text" name="description" autocomplete="off">
+      </label>
+      <button type="submit">Add Theory 👽</button>
+    </form>
+  <% } %> 
   <ul>
     <% theories.forEach(theory => { %>
-      <li>🛸<%= theory.owner %> <%= theory.title %> </li>
+      <li>🛸 <%= theory.owner %> | <%= theory.title %> </li>
     <% }) %> 
   </ul>
 </section>
