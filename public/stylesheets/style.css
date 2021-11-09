@@ -59,6 +59,7 @@ main {
 h1 {
   font-size: 3.6rem;
   font-family: 'Fruktur', cursive;
+  text-shadow: 1.5px 1.5px 1.5px white;
 }
 
 table {
