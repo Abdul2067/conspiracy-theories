@@ -22,11 +22,15 @@
       <button type="submit" class="btn btn-success btn-lg">Add Theory 👽</button>
     </form>
   <% } %> 
-  <ul>
-    <% theories.forEach(theory => { %>
-      <li>🛸 <%= theory.owner.name %> | <%= theory.title %> <a href="/theories/<%= theory._id %> ">Details</a></li>
-    <% }) %> 
-  </ul>
+    <% if (theories.length) { %>
+      <% theories.forEach(theory => { %>
+       <ul>
+        <li>🛸 <%= theory.owner.name %> | <%= theory.title %> <a href="/theories/<%= theory._id %> ">Details</a></li>
+        </ul>
+      <% }) %> 
+    <% } else { %>
+      <h1>There are currently no theories!</h1>
+      <% } %> 
 </section>
 
 <%- include('../partials/footer') %>
