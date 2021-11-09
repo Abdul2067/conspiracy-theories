@@ -52,7 +52,6 @@ function createEvidence(req, res) {
     theory.save()
     .then(() => {
       res.redirect(`/theories/${theory._id}`)
-      console.log("The evidence", req.body)
     })
   })
   .catch(err => {
@@ -75,10 +74,29 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  Theory.findByIdAndUpdate(req.params.id)
+  .then(theory => {
+    if (theory.owner.equals(req.user.profile._id)) {
+      theory.updateOne(req.body, {new: true})
+      .then(theory => {
+        res.redirect(`/theories/${theory._id}`)
+      })
+    } else {
+      throw new Error ("Permission Denied 🛑")
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/theories")
+  })
+}
+
 export {
   index,
   create,
   show,
   createEvidence,
   edit,
+  update,
 }
