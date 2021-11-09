@@ -93,7 +93,21 @@ function update(req, res) {
 }
 
 function deleteTheory(req, res) {
-  
+  Theory.findById(req.params.id)
+  .then(theory => {
+    if (theory.owner.equals(req.user.profile._id)) {
+      theory.delete()
+      .then(() => {
+        res.redirect("/theories")
+      })
+    } else {
+      throw new Error ("Permission Denied 🛑")
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/theories")
+  })
 }
 
 export {
