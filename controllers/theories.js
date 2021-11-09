@@ -92,6 +92,10 @@ function update(req, res) {
   })
 }
 
+function deleteTheory(req, res) {
+  
+}
+
 export {
   index,
   create,
@@ -99,4 +103,5 @@ export {
   createEvidence,
   edit,
   update,
+  deleteTheory as delete
 }
