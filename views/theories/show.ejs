@@ -1,6 +1,8 @@
 <%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
 
+<link rel="stylesheet" href="/stylesheets/theories/show.css">
+
+<%- include('../partials/nav') %>
 
 <section>
   <h1>Theory by <%= theory.owner.name %> </h1>
@@ -22,21 +24,21 @@
   action="/theories/<%= theory._id %>/evidence"
   method="POST">
   <input type="text" placeholder="Input Evidence Here" name="content">
-  <button type="submit">Submit</button>
+  <button type="submit" class="btn btn-success btn-lg">Submit</button>
   <% } %> 
   </form>
   <% if (theory.evidence.length) { %>
     <table>
       <thead>
         <tr>
-          <th>Username</th>
+          <th class="first">Username</th>
           <th>Evidence</th>
         </tr>
       </thead>
       <tbody>
         <% theory.evidence.forEach(function(e) { %>
           <tr>
-            <td><%= e.owner.name %> </td>
+            <td class="first"><%= e.owner.name %> </td>
             <td> <%= e.content %> </td>
           </tr>
         <% }) %> 
@@ -47,10 +49,10 @@
     <% } %>
     <% if (theory.owner.equals(user?.profile._id)) { %>
      <form action="/theories/<%= theory._id %>/edit" method="GET">
-      <button class="btn" type="submit">Edit this theory</button>
+      <button type="submit" class="btn btn-primary btn-lg">Edit this theory</button>
     </form>
     <form action="/theories/<%= theory._id %>?_method=DELETE"  method="POST">
-    <button class="btn" type="submit">Delete this Theory</button>
+    <button type="submit" class="btn btn-danger btn-lg">Delete this Theory</button>
     </form>
     <% } %>
 </section>

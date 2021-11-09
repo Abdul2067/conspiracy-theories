@@ -1,0 +1,28 @@
+section {
+  margin-top: 25px;
+}
+
+img {
+  margin: 15px;
+}
+
+h2 {
+  margin: 10px;
+}
+
+button {
+  margin: 10px;
+}
+
+th.first {
+  padding-right: 20px;
+}
+
+td.first {
+  padding-right: 20px;
+}
+
+input {
+  border: white;
+  border-radius: 4px;
+}
