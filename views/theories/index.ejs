@@ -11,12 +11,20 @@
     <form action="/theories" method="POST">
       <label>
         Theory:
-        <input type="text" name="title" autocomplete="off">
+        <input 
+        type="text" 
+        name="title" 
+        required="true"
+        autocomplete="off">
       </label>
       <br>
       <label>
         Description:
-        <input type="text" name="description" autocomplete="off">
+        <input 
+        type="text" 
+        name="description" 
+        required="true"
+        autocomplete="off">
       </label>
       <br>
       <button type="submit" class="btn btn-success btn-lg">Add Theory 👽</button>

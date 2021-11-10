@@ -24,7 +24,7 @@
   action="/theories/<%= theory._id %>/evidence"
   method="POST">
   <input type="text" placeholder="Input Evidence Here" name="content">
-  <button type="submit" class="btn btn-success btn-lg">Submit</button>
+  <button id="submit-btn" type="submit" class="btn btn-success btn-lg">Submit</button>
   <% } %> 
   </form>
   <% if (theory.evidence.length) { %>
@@ -32,14 +32,14 @@
       <thead>
         <tr>
           <th class="first">Username</th>
-          <th>Evidence</th>
+          <th class="second">Evidence</th>
         </tr>
       </thead>
       <tbody>
         <% theory.evidence.forEach(function(e) { %>
           <tr>
             <td class="first"><%= e.owner.name %> </td>
-            <td> <%= e.content %> </td>
+            <td class="second"> <%= e.content %> </td>
           </tr>
         <% }) %> 
       </tbody>
@@ -49,7 +49,7 @@
     <% } %>
     <% if (theory.owner.equals(user?.profile._id)) { %>
      <form action="/theories/<%= theory._id %>/edit" method="GET">
-      <button type="submit" class="btn btn-primary btn-lg">Edit this theory</button>
+      <button id="edit-btn" type="submit" class="btn btn-primary btn-lg">Edit this theory</button>
     </form>
     <form action="/theories/<%= theory._id %>?_method=DELETE"  method="POST">
     <button type="submit" class="btn btn-danger btn-lg">Delete this Theory</button>

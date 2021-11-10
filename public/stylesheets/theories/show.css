@@ -10,8 +10,13 @@ h2 {
   margin: 10px;
 }
 
-button {
-  margin: 10px;
+h3 {
+  font-weight: 800;
+}
+
+#edit-btn {
+  margin: 15px;
+  margin-top: 20px;
 }
 
 th.first {
@@ -25,4 +30,17 @@ td.first {
 input {
   border: white;
   border-radius: 4px;
+}
+
+#submit-btn {
+  margin-bottom: 5px;
+  margin-left: 8px;
+}
+
+th.first {
+  padding-top: 20px;
+}
+
+th.second {
+  padding-top: 20px;
 }
