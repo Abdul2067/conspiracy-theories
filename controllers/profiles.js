@@ -14,7 +14,22 @@ function index(req, res) {
   })
 }
 
+function show(req, res) {
+  Profile.findById(req,params.id)
+  .them(profile => {
+    res.render("profiles/show", {
+      profile,
+      title: `${profile.name}'s profile'`
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/profiles/${req.user.profile._id}`)
+  })
+}
+
 
 export {
-  index
+  index,
+  show
 }
