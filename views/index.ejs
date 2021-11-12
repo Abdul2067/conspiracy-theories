@@ -1,15 +1,29 @@
 <%- include('./partials/html-head') %>
+
+<link rel="stylesheet" href="/stylesheets/index.css">
+
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>Welcome, <%= user ? user.profile.name : "Fellow Theorist" %></h1>
+  <h1>The Wolf Pack</h1>
+  <h2>Welcome, <%= user ? user.profile.name : "Fellow Theorist" %></h2>
   <% if (user?.profile.avatar) { %>
     <div>
       <img 
-        src="<%= user.profile.avatar %>" 
-        alt="<%= user.profile.name %> avatar"
+      src="<%= user.profile.avatar %>" 
+      alt="<%= user.profile.name %> avatar"
       >
-      <h2>Wel</h2>
+      <p>Good to see you back! We cant wait to see what you have to add.</p>
+    </div>
+  <% } %>
+  <% if (!user?.profile.avatar) { %>
+    <div>
+      <img 
+      src="https://i.imgur.com/auBxb0i.jpg">
+      <p>Where would the human race be if we didn't question what we know?</p>
+      <p>Here at The Wolf Pack we give users the ability to post their favorite conspiracy theories as  
+      <br>well as give the owner of the post and other users the ability to add evidence to the theory.</p>
+      <p>Click the sign in with google and join our wolf pack to being your journey.</p>
     </div>
   <% } %>
 </main>
